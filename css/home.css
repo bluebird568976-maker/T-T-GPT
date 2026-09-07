@@ -1,32 +1,63 @@
 .home-links .link-grid{grid-template-columns:1fr}
-.home-links .feature-link{min-height:150px}
+.home-links .feature-link{min-height:148px}
 
 .hero-grid{
   display:grid;
-  grid-template-columns:minmax(0,1.03fr) minmax(420px,.97fr);
-  gap:78px;
+  grid-template-columns:minmax(0,1.02fr) minmax(420px,.98fr);
+  gap:76px;
   align-items:center;
 }
-.hero-copy-block{max-width:610px}
+.hero-copy-block{position:relative;max-width:620px;padding-left:20px}
+.hero-copy-block::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:2px;
+  bottom:6px;
+  width:1px;
+  background:linear-gradient(#111 0 18%,#c9cfd1 18% 100%);
+}
+.hero-copy-block::after{
+  content:"SYSTEM / CONSULTING";
+  position:absolute;
+  left:20px;
+  bottom:-42px;
+  font:500 8px Inter,sans-serif;
+  letter-spacing:.18em;
+  color:#92999c;
+}
 .hero-copy-block .button{position:relative;overflow:hidden}
 .hero-media,.media-frame,.about-media,.service-visual{margin:0}
 
 .media-frame{
   position:relative;
   overflow:hidden;
-  border-radius:18px;
-  background:#ececeb;
-  border:1px solid rgba(17,17,17,.10);
-  box-shadow:0 28px 70px rgba(0,0,0,.10);
+  border-radius:6px;
+  background:#e9ecec;
+  border:1px solid rgba(13,15,16,.18);
+  box-shadow:0 24px 64px rgba(0,0,0,.09);
 }
-.hero-media{aspect-ratio:1.1/1;min-height:0}
+.hero-media{aspect-ratio:1.12/1;min-height:0}
 .hero-media::before{
   content:"";
   position:absolute;
-  inset:14px;
+  inset:11px;
   z-index:2;
-  border:1px solid rgba(255,255,255,.48);
-  border-radius:12px;
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:2px;
+  pointer-events:none;
+}
+.hero-media::after{
+  content:"LIVE / 01";
+  position:absolute;
+  left:16px;
+  bottom:14px;
+  z-index:3;
+  padding:4px 7px;
+  background:rgba(13,15,16,.72);
+  color:#fff;
+  font:500 8px Inter,sans-serif;
+  letter-spacing:.16em;
   pointer-events:none;
 }
 .hero-media img,.about-media img,.service-visual img{
@@ -40,12 +71,13 @@
 }
 
 @media(max-width:900px){
-  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(330px,.85fr);gap:42px}
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(330px,.86fr);gap:42px}
 }
 
 @media(max-width:760px){
-  .hero-grid{grid-template-columns:1fr;gap:34px}
-  .hero-copy-block{max-width:none}
+  .hero-grid{grid-template-columns:1fr;gap:42px}
+  .hero-copy-block{max-width:none;padding-left:14px}
+  .hero-copy-block::after{left:14px;bottom:-28px}
   .hero-media{aspect-ratio:4/3;min-height:0}
-  .hero-media::before{inset:10px;border-radius:10px}
+  .hero-media::before{inset:8px}
 }
