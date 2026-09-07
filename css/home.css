@@ -28,6 +28,9 @@
   height:100%;
   min-height:inherit;
   object-fit:cover;
+  filter:grayscale(100%) contrast(.94) brightness(1.03);
+  image-rendering:auto;
+  backface-visibility:hidden;
 }
 
 @media(max-width:760px){
