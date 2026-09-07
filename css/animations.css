@@ -4,9 +4,9 @@
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:64px;align-items:center;padding:88px 0 96px}
 .hero-copy-block{min-width:0}.hero-grid h1{max-width:720px;font-size:clamp(42px,5.2vw,70px)}
 .media-frame{margin:0;overflow:hidden;border:1px solid rgba(17,17,17,.16);background:#ececea}
-.media-frame img{display:block;width:100%;height:100%;object-fit:cover;filter:grayscale(.7) saturate(.55) contrast(.96);transform-origin:center}
-.hero-media{aspect-ratio:4/3;min-height:360px;box-shadow:0 24px 70px rgba(0,0,0,.08)}
-.hero-media img{animation:heroDrift 16s ease-in-out infinite alternate}
+.media-frame img{display:block;width:100%;height:100%;object-fit:cover;filter:none!important;image-rendering:auto;transform-origin:center;backface-visibility:hidden}
+.hero-media{aspect-ratio:3/2;min-height:0;box-shadow:0 24px 70px rgba(0,0,0,.08)}
+.hero-media img{animation:heroDrift 18s ease-in-out infinite alternate}
 .feature-link b{animation:arrowDrift 3.8s ease-in-out infinite}
 .statement{position:relative;overflow:hidden}
 .statement::before{content:"T&T GROUP / CONSULTING";position:absolute;left:-3%;top:18%;white-space:nowrap;color:rgba(255,255,255,.035);font:600 clamp(90px,15vw,220px)/1 Inter,sans-serif;letter-spacing:-.06em;animation:textDrift 20s ease-in-out infinite alternate;pointer-events:none}
@@ -14,9 +14,9 @@
 .page-hero{position:relative;overflow:hidden}
 .page-hero::after{content:"";position:absolute;left:-35%;bottom:0;width:40%;height:1px;background:linear-gradient(90deg,transparent,#111,transparent);opacity:.5;animation:lineFlow 8s linear infinite}
 .about-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
-.about-media{aspect-ratio:4/3;min-height:340px}
+.about-media{aspect-ratio:4/3;min-height:0}
 .about-company-data{margin-top:76px}
-.service-visual{width:100%;aspect-ratio:16/7;margin:0 0 72px;min-height:300px}
+.service-visual{width:100%;aspect-ratio:3/2;margin:0 0 72px;min-height:0}
 .image-float{animation:imageFloat 8s ease-in-out infinite}
 .service-point>span{position:relative;display:inline-block;width:max-content;padding-bottom:12px}
 .service-point>span::after{content:"";position:absolute;left:0;bottom:0;width:54px;height:1px;background:linear-gradient(90deg,#111 0 35%,#bbb 35% 100%);background-size:180% 100%;animation:lineFlowShort 6s linear infinite}
@@ -24,8 +24,8 @@
 .contact-section::before{content:"";position:absolute;inset:-30%;pointer-events:none;background:radial-gradient(circle at 25% 30%,rgba(17,17,17,.035),transparent 24%),radial-gradient(circle at 75% 60%,rgba(17,17,17,.025),transparent 28%);animation:contactDrift 18s ease-in-out infinite alternate}
 .contact-section>.container{position:relative;z-index:1}
 .button-dark{animation:subtlePulse 4.6s ease-in-out infinite}
-@keyframes heroDrift{0%{transform:scale(1) translate3d(0,0,0)}100%{transform:scale(1.045) translate3d(-1.2%,.8%,0)}}
-@keyframes imageFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-6px,0)}}
+@keyframes heroDrift{0%{transform:scale(1) translate3d(0,0,0)}100%{transform:scale(1.012) translate3d(-.25%,.2%,0)}}
+@keyframes imageFloat{0%,100%{transform:translate3d(0,0,0)}50%{transform:translate3d(0,-4px,0)}}
 @keyframes arrowDrift{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
 @keyframes backgroundDrift{from{background-position:0 0}to{background-position:260px 0}}
 @keyframes textDrift{from{transform:translateX(-10px)}to{transform:translateX(10px)}}
@@ -33,5 +33,5 @@
 @keyframes lineFlowShort{from{background-position:100% 0}to{background-position:-80% 0}}
 @keyframes contactDrift{from{transform:translate3d(-1%,0,0) scale(1)}to{transform:translate3d(1.5%,-1%,0) scale(1.03)}}
 @keyframes subtlePulse{0%,100%{transform:scale(1)}50%{transform:scale(1.015)}}
-@media(max-width:760px){.hero{min-height:auto}.hero-grid{grid-template-columns:1fr;gap:38px;padding:64px 0 72px}.hero-grid h1{font-size:42px}.hero-media{min-height:0;aspect-ratio:4/3}.about-intro-grid{grid-template-columns:1fr;gap:38px}.about-media{min-height:0}.about-company-data{margin-top:54px}.service-visual{aspect-ratio:4/3;min-height:0;margin-bottom:50px}.statement::before{top:30%;font-size:110px}.image-float{animation-duration:9s}}
+@media(max-width:760px){.hero{min-height:auto}.hero-grid{grid-template-columns:1fr;gap:38px;padding:64px 0 72px}.hero-grid h1{font-size:42px}.hero-media{min-height:0;aspect-ratio:3/2}.about-intro-grid{grid-template-columns:1fr;gap:38px}.about-media{min-height:0}.about-company-data{margin-top:54px}.service-visual{aspect-ratio:3/2;min-height:0;margin-bottom:50px}.statement::before{top:30%;font-size:110px}.image-float{animation-duration:9s}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
