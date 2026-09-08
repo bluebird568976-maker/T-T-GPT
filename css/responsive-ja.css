@@ -8,13 +8,6 @@
   hyphens:none;
 }
 
-/* Use this only for a short phrase that should never split in Japanese. */
-.jp-no-break{
-  display:inline-block;
-  max-width:100%;
-  white-space:nowrap;
-}
-
 /* Modern Chrome / supported browsers: use language-aware phrase analysis.
    Manual phrase wrappers are neutralized so line breaks are chosen at natural
    Japanese phrase boundaries instead of moving one character at a time. */
@@ -45,13 +38,6 @@
   .jp-flow wbr{
     display:none;
   }
-
-  /* Explicitly preserve short phrases whose split would read unnaturally. */
-  .jp-flow .jp-no-break{
-    display:inline-block;
-    max-width:100%;
-    white-space:nowrap!important;
-  }
 }
 
 /* Fallback for browsers without auto-phrase support: keep the manually defined
@@ -75,6 +61,23 @@
   .jp-flow wbr{
     display:inline;
   }
+}
+
+/* Contact lead copy is intentionally controlled by phrase units on every browser.
+   This prevents the line ending from shifting one Japanese character at a time. */
+.contact-phrase-flow{
+  line-break:strict;
+  word-break:keep-all!important;
+  overflow-wrap:normal;
+  text-wrap:wrap!important;
+}
+.contact-phrase-flow .jp-phrase{
+  display:inline-block!important;
+  max-width:100%;
+  white-space:nowrap!important;
+}
+.contact-phrase-flow wbr{
+  display:inline!important;
 }
 
 /* Prevent grid/flex children from collapsing to one-character-wide columns. */
