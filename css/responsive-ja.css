@@ -1,21 +1,69 @@
 /* Japanese phrase-aware responsive layout */
+
+/* Base: keep Japanese punctuation rules strict without forcing arbitrary breaks. */
 .jp-flow{
   line-break:strict;
-  word-break:keep-all;
+  word-break:normal;
   overflow-wrap:normal;
+  hyphens:none;
 }
-.jp-line{
-  display:block;
-  white-space:normal!important;
-}
-.jp-phrase{
-  display:inline-block;
-  max-width:100%;
-  white-space:nowrap;
-}
-.jp-flow wbr{display:inline}
 
-/* Prevent grid/flex children from collapsing to one-character-wide columns */
+/* Modern Chrome / supported browsers: use language-aware phrase analysis.
+   Manual phrase wrappers are neutralized so line breaks are chosen at natural
+   Japanese phrase boundaries instead of moving one character at a time. */
+@supports (word-break:auto-phrase){
+  body{
+    word-break:auto-phrase;
+    line-break:strict;
+  }
+
+  .jp-flow{
+    word-break:auto-phrase;
+    text-wrap:pretty;
+  }
+
+  h1.jp-flow,
+  h2.jp-flow,
+  h3.jp-flow{
+    text-wrap:balance;
+  }
+
+  .jp-flow .jp-line,
+  .jp-flow .jp-phrase{
+    display:inline;
+    max-width:none;
+    white-space:normal!important;
+  }
+
+  .jp-flow wbr{
+    display:none;
+  }
+}
+
+/* Fallback for browsers without auto-phrase support: keep the manually defined
+   phrase units intact and allow breaks only between those units. */
+@supports not (word-break:auto-phrase){
+  .jp-flow{
+    word-break:keep-all;
+  }
+
+  .jp-line{
+    display:block;
+    white-space:normal!important;
+  }
+
+  .jp-phrase{
+    display:inline-block;
+    max-width:100%;
+    white-space:nowrap;
+  }
+
+  .jp-flow wbr{
+    display:inline;
+  }
+}
+
+/* Prevent grid/flex children from collapsing to one-character-wide columns. */
 .hero-copy-block,
 .home-intro-grid>*,
 .about-intro-grid>*,
@@ -26,42 +74,84 @@
   min-width:0;
 }
 
-/* Switch multi-column layouts earlier so Japanese copy keeps a natural measure */
-@media(max-width:1024px){
+/* Keep a readable text measure so paragraphs reflow by phrase rather than
+   becoming extremely narrow columns. */
+.hero-copy,
+.home-intro-grid>p,
+.section-intro>p:last-child,
+.body-copy,
+.service-lead,
+.service-point p,
+.service-cta p,
+.contact-lead p{
+  width:100%;
+  max-width:46rem;
+}
+
+/* Switch multi-column layouts earlier so Japanese copy keeps a natural measure. */
+@media(max-width:1100px){
   .hero-grid{
     grid-template-columns:1fr!important;
     gap:48px!important;
   }
+
   .hero-copy-block{
-    max-width:760px!important;
+    max-width:780px!important;
   }
+
   .hero-media{
     width:100%;
-    max-width:820px!important;
+    max-width:860px!important;
     justify-self:stretch!important;
     aspect-ratio:16/10!important;
   }
+
+  .home-intro-grid{
+    grid-template-columns:1fr!important;
+    gap:34px!important;
+  }
+
+  .home-intro-grid>p{
+    margin-top:0!important;
+  }
+
   .about-intro-grid{
     grid-template-columns:1fr!important;
     gap:42px!important;
   }
+
   .about-media{
     width:100%;
-    max-width:820px!important;
+    max-width:860px!important;
     justify-self:stretch!important;
   }
+
   .service-detail-head{
     grid-template-columns:1fr!important;
     gap:28px!important;
   }
-  .service-lead{
-    max-width:760px;
-  }
 }
 
 @media(max-width:760px){
-  .jp-phrase{white-space:nowrap}
-  .hero-copy,.home-intro-grid>p,.body-copy,.service-lead,.service-point p,.contact-lead p,.service-cta p{
+  .hero-copy,
+  .home-intro-grid>p,
+  .section-intro>p:last-child,
+  .body-copy,
+  .service-lead,
+  .service-point p,
+  .contact-lead p,
+  .service-cta p{
     max-width:100%;
+  }
+
+  .hero h1{
+    font-size:clamp(30px,9vw,42px)!important;
+  }
+
+  .home-intro h2,
+  .narrow h2,
+  .service-detail-head h2,
+  .service-cta h2{
+    text-wrap:balance;
   }
 }
