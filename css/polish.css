@@ -1,0 +1,200 @@
+/* T&TGroup / final polish: shared CTA and footer */
+.common-cta{
+  position:relative;
+  overflow:hidden;
+  background:#0d0f10;
+  color:#fff;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.common-cta::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.common-cta::after{
+  content:"CONTACT / T&TGROUP";
+  position:absolute;
+  right:4%;
+  top:22px;
+  color:rgba(255,255,255,.18);
+  font:500 9px/1 Inter,sans-serif;
+  letter-spacing:.22em;
+  pointer-events:none;
+}
+.common-cta-inner{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:end;
+  gap:64px;
+  padding:84px 0 88px;
+}
+.common-cta .section-index{color:#aeb4b6}
+.common-cta h2{
+  margin:0 0 18px;
+  max-width:760px;
+  font-size:clamp(34px,4.8vw,58px);
+  line-height:1.2;
+  letter-spacing:-.045em;
+  font-weight:500;
+}
+.common-cta p:last-child{
+  margin:0;
+  color:#b9bec0;
+  font-size:14px;
+  line-height:2;
+}
+.common-cta .button{
+  min-width:220px;
+  background:#fff;
+  color:#0d0f10;
+  border-color:#fff;
+  box-shadow:none;
+}
+.common-cta .button:hover{
+  background:transparent;
+  color:#fff;
+  border-color:#fff;
+}
+
+.site-footer{
+  padding:0;
+  background:#eef1f2;
+  border-top:1px solid #cfd4d6;
+}
+.footer-main{
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:52px;
+  padding:54px 0 38px;
+}
+.footer-logo{
+  display:inline-flex;
+  align-items:center;
+}
+.footer-logo img{
+  display:block;
+  width:126px;
+  height:88px;
+  object-fit:contain;
+}
+.footer-nav{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:28px;
+  flex-wrap:wrap;
+}
+.footer-nav a{
+  position:relative;
+  padding:7px 0;
+  color:#3d4446;
+  font:600 12px/1.2 Inter,"Noto Sans JP",sans-serif;
+  letter-spacing:.06em;
+}
+.footer-nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:#111;
+  transform:scaleX(0);
+  transform-origin:right;
+  transition:transform .25s ease;
+}
+.footer-nav a:hover::after,
+.footer-nav a[aria-current="page"]::after{
+  transform:scaleX(1);
+  transform-origin:left;
+}
+.back-to-top{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 0;
+  white-space:nowrap;
+  color:#22282a;
+  font:600 10px/1 Inter,sans-serif;
+  letter-spacing:.14em;
+}
+.back-to-top span{
+  font-size:16px;
+  transition:transform .25s ease;
+}
+.back-to-top:hover span{transform:translateY(-3px)}
+.footer-meta{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
+  padding:18px 0 28px;
+  border-top:1px solid #cbd0d2;
+}
+.footer-meta p{
+  margin:0;
+  color:#747b7d;
+  font:500 10px/1.5 Inter,"Noto Sans JP",sans-serif;
+  letter-spacing:.07em;
+}
+.footer-meta p:last-child{
+  text-transform:uppercase;
+  letter-spacing:.14em;
+}
+
+@media(max-width:900px){
+  .common-cta-inner{
+    grid-template-columns:1fr;
+    align-items:start;
+    gap:34px;
+  }
+  .footer-main{
+    grid-template-columns:auto 1fr;
+    gap:34px;
+  }
+  .footer-nav{
+    justify-content:flex-end;
+    gap:20px;
+  }
+  .back-to-top{
+    grid-column:1/-1;
+    justify-self:end;
+  }
+}
+
+@media(max-width:760px){
+  .common-cta-inner{padding:68px 0 72px}
+  .common-cta::after{right:16px;top:16px;font-size:8px}
+  .common-cta h2{font-size:clamp(28px,8.2vw,40px)}
+  .common-cta .button{width:100%}
+  .footer-main{
+    grid-template-columns:1fr;
+    align-items:start;
+    gap:26px;
+    padding:42px 0 30px;
+  }
+  .footer-logo img{
+    width:116px;
+    height:80px;
+  }
+  .footer-nav{
+    justify-content:flex-start;
+    gap:12px 22px;
+  }
+  .footer-nav a{font-size:12px}
+  .back-to-top{
+    grid-column:auto;
+    justify-self:start;
+  }
+  .footer-meta{
+    display:block;
+    padding:18px 0 24px;
+  }
+  .footer-meta p:last-child{margin-top:8px}
+}
