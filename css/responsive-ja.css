@@ -8,6 +8,13 @@
   hyphens:none;
 }
 
+/* Use this only for a short phrase that should never split in Japanese. */
+.jp-no-break{
+  display:inline-block;
+  max-width:100%;
+  white-space:nowrap;
+}
+
 /* Modern Chrome / supported browsers: use language-aware phrase analysis.
    Manual phrase wrappers are neutralized so line breaks are chosen at natural
    Japanese phrase boundaries instead of moving one character at a time. */
@@ -37,6 +44,13 @@
 
   .jp-flow wbr{
     display:none;
+  }
+
+  /* Explicitly preserve short phrases whose split would read unnaturally. */
+  .jp-flow .jp-no-break{
+    display:inline-block;
+    max-width:100%;
+    white-space:nowrap!important;
   }
 }
 
