@@ -1,0 +1,60 @@
+/* 404 page */
+.error-hero{
+  min-height:380px;
+}
+.error-section{
+  padding:96px 0 132px;
+  background:#f5f6f6;
+}
+.error-wrap{
+  display:grid;
+  grid-template-columns:minmax(240px,.7fr) minmax(0,1fr);
+  align-items:end;
+  gap:72px;
+}
+.error-code{
+  margin:0;
+  color:#111;
+  font:500 clamp(110px,20vw,280px)/.78 Inter,sans-serif;
+  letter-spacing:-.08em;
+}
+.error-copy{
+  max-width:620px;
+  padding-bottom:10px;
+}
+.error-copy p{
+  margin:0;
+  color:#555d60;
+  font-size:15px;
+  line-height:2;
+}
+.error-copy p+p{
+  margin-top:8px;
+}
+.error-copy .button{
+  margin-top:32px;
+}
+@media(max-width:900px){
+  .error-wrap{
+    grid-template-columns:1fr;
+    align-items:start;
+    gap:42px;
+  }
+  .error-code{
+    font-size:clamp(110px,31vw,220px);
+  }
+}
+@media(max-width:760px){
+  .error-section{
+    padding:72px 0 94px;
+  }
+  .error-wrap{
+    gap:34px;
+  }
+  .error-copy p{
+    font-size:14px;
+  }
+  .error-copy .button{
+    width:100%;
+  }
+}
