@@ -49,16 +49,16 @@ p{text-wrap:pretty}
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
 }
-.header-inner{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:36px}
+.header-inner{min-height:88px;display:flex;align-items:center;justify-content:space-between;gap:36px}
 .logo-link{display:flex;align-items:center;flex:0 0 auto}
-.logo-link img{width:84px;height:58px;object-fit:contain}
-.site-nav{display:flex;align-items:center;gap:30px;counter-reset:nav;font:600 11px/1.2 Inter,"Noto Sans JP",sans-serif;letter-spacing:.08em}
-.site-nav a{counter-increment:nav;position:relative;display:grid;grid-template-columns:auto auto;align-items:center;gap:7px;padding:9px 0;color:#34393b;transition:color .25s ease}
-.site-nav a::before{content:"0" counter(nav);font:500 8px/1 Inter,sans-serif;color:#92999c;letter-spacing:.08em}
+.logo-link img{width:102px;height:70px;object-fit:contain}
+.site-nav{display:flex;align-items:center;gap:32px;counter-reset:nav;font:600 13px/1.2 Inter,"Noto Sans JP",sans-serif;letter-spacing:.075em}
+.site-nav a{counter-increment:nav;position:relative;display:grid;grid-template-columns:auto auto;align-items:center;gap:8px;padding:10px 0;color:#34393b;transition:color .25s ease}
+.site-nav a::before{content:"0" counter(nav);font:500 9px/1 Inter,sans-serif;color:#92999c;letter-spacing:.08em}
 .site-nav a::after{content:"";position:absolute;left:0;right:0;bottom:1px;height:1px;background:#111;transform:scaleX(0);transform-origin:right;transition:transform .28s ease}
 .site-nav a:hover,.site-nav a[aria-current=page]{color:#0d0f10}
 .site-nav a:hover::after,.site-nav a[aria-current=page]::after{transform:scaleX(1);transform-origin:left}
-.menu-button{display:none;border:0;background:transparent;padding:10px 0;font:600 11px Inter,sans-serif;letter-spacing:.16em;color:#111}
+.menu-button{display:none;border:0;background:transparent;padding:10px 0;font:600 12px Inter,sans-serif;letter-spacing:.16em;color:#111}
 
 /* Shared labels */
 .kicker,.section-index,.eyebrow{font:600 10px/1.4 Inter,"Noto Sans JP",sans-serif;letter-spacing:.20em;text-transform:uppercase}
@@ -185,19 +185,19 @@ p{text-wrap:pretty}
 .footer-inner p{margin:0;color:#777e80;font:10px Inter,sans-serif;letter-spacing:.07em}
 
 @media(max-width:900px){
-  .site-nav{gap:20px}
+  .site-nav{gap:22px;font-size:12px}
   .feature-link{grid-template-columns:130px 1fr 1fr 34px}
   .home-intro-grid{gap:70px}
 }
 
 @media(max-width:760px){
   .container{width:min(calc(100% - 32px),var(--max))}
-  .header-inner{min-height:68px}
-  .logo-link img{width:70px;height:50px}
-  .menu-button{display:block}
-  .site-nav{display:none;position:absolute;top:68px;left:0;right:0;background:rgba(247,248,248,.99);padding:20px 18px 24px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:10px}
+  .header-inner{min-height:76px}
+  .logo-link img{width:82px;height:58px}
+  .menu-button{display:block;font-size:13px}
+  .site-nav{display:none;position:absolute;top:76px;left:0;right:0;background:rgba(247,248,248,.99);padding:22px 18px 26px;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:11px;font-size:14px}
   .site-nav.open{display:flex}
-  .site-nav a{width:100%;padding:8px 0}
+  .site-nav a{width:100%;padding:9px 0}
   .hero{min-height:auto}
   .hero h1{font-size:clamp(28px,9vw,44px);line-height:1.14;letter-spacing:-.045em}
   .hero-copy{font-size:14px;line-height:1.95}
