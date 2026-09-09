@@ -269,3 +269,56 @@
   }
   .footer-meta p:last-child{margin-top:8px}
 }
+
+/* Final brand / navigation scale.
+   Kept in the shared stylesheet so every page, including privacy and 404,
+   uses the approved header sizing. */
+.header-inner{
+  min-height:116px;
+}
+.logo-link img{
+  width:150px;
+  height:100px;
+  object-fit:contain;
+}
+.site-nav{
+  gap:36px;
+  font-size:15px;
+}
+.site-nav a::before{
+  font-size:10px;
+}
+.menu-button{
+  font-size:14px;
+}
+
+@media(max-width:900px){
+  .header-inner{
+    min-height:104px;
+  }
+  .logo-link img{
+    width:132px;
+    height:90px;
+  }
+  .site-nav{
+    gap:24px;
+    font-size:14px;
+  }
+}
+
+@media(max-width:760px){
+  .header-inner{
+    min-height:92px;
+  }
+  .logo-link img{
+    width:112px;
+    height:76px;
+  }
+  .menu-button{
+    font-size:15px;
+  }
+  .site-nav{
+    top:92px;
+    font-size:16px;
+  }
+}
